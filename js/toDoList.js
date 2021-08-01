@@ -8,6 +8,9 @@ const pedirInput = mensaje => {
 
 const pedirNumbrer = mensaje => {
     let numero = parseInt(prompt(mensaje));
+    while (isNaN(numero)) {
+        numero = parseInt(prompt(mensaje));
+    }
     return numero;
 }
 
@@ -22,7 +25,7 @@ const validarCurso = year => {
 
 let curso = pedirInput('Ingrese su curso para empezar (1 año, 2 año, 3 año, 4 año o 5 año)');
 curso = validarCurso(curso);
-console.log(`Bienvenido estudiante de ${curso}!`);
+
 
 // agregar y quitar las tareas con fecha limite
 
@@ -61,10 +64,43 @@ mes = validarMes(mes);
 let dia = pedirNumbrer('Ingrese el dia');
 dia = validarDia(dia, mes, FECHA);
 
-console.log(`Se a programado que se debe realizar la tarea '${tarea}' para el ${dia} / ${mes + 1}`)
+
+
+class GuardarTareas {
+    constructor(curso, tarea, mes, dia) {
+        this.curso = curso;
+        this.tarea = tarea;
+        this.mes = mes;
+        this.dia = dia;
+    }
+
+    mostrarTarea() {
+        console.log(`Se a programado que se debe realizar la tarea '${this.tarea}' para el ${this.dia} / ${this.mes + 1} en el curso ${this.curso}`);
+    }
+
+}
+
+const tarea1 = new GuardarTareas(curso, tarea, mes, dia);
+console.log(tarea1.mostrarTarea())
 
 // timer que puedas programar una alarma
 
+let tiempoParaAlarma = pedirNumbrer('Ingrese el tiempo del cronomentro en minutos');
+let segundos = 60;
+let minutos = tiempoParaAlarma - 1;
 
+let temporizador = setInterval(() => {
+    segundos --;
+    
 
+    console.log(`Pasaron ${minutos}:${segundos}`);
+    if (minutos == 0 && segundos == 0) {
+        clearInterval(temporizador);
+        console.log('RINGGGG!!')
+    }
+    if (segundos == 0){
+        minutos --;
+        segundos = 60;
+    }
 
+}, 1000);
