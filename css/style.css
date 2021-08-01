@@ -1,0 +1,144 @@
+.bgColor{
+    background-color: #0EA5E9;
+}
+
+/* ------------------------ TIMER --------------------------------- */
+
+.timerContainer{
+    width: 30rem;
+    height: 21rem;
+    border-radius: 1rem;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.timeContent{
+   padding-top: 5rem; 
+}
+
+.time{
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.startButton{
+    border: none;
+    color: #0EA5E9;
+    font-size: 2.5rem;
+    font-weight: bold;
+    border-radius: .5rem;
+    padding: .5rem;
+    transition: all .5s;
+}
+
+.startButton:hover{
+    padding: 1rem 1rem;
+    font-size: 2.75rem;
+}
+
+.startButton:focus{
+    background-color: #ddfcff;
+}
+
+.arrowTime{
+    border: none;
+    background-color: transparent;
+}
+
+/* ------------------------------------------------------------- */
+
+/* ------------------------ TAREAS --------------------------------- */
+.listStyle{
+    list-style: none;
+    padding: 0;
+}
+
+.taskButton{
+    background-color: transparent;
+    color: #E0F2FE;
+    border: none;
+    
+}
+
+.taskButton:focus{
+    text-decoration:line-through;
+}
+
+.taskCard{
+    background-color: white;
+    border-radius: .4rem;
+}
+
+.taskCard__text{
+    display: inline;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+.trashButton{
+   border: none; 
+}
+/* ------------------------------------------------------------- */
+
+/* ------------------------ AGREGAR TAREAS --------------------------------- */
+
+.addTask{
+    border-radius: .4rem;
+    border: white dashed .2rem;
+    opacity: 0.6;
+    color: white;
+    background-color: transparent;
+    width: 100%;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .45rem 0;
+    transition: all .5s;
+}
+
+.addTask:hover, .addTask__plus {
+    opacity: 1;
+}
+
+.addTask__plus{
+    opacity: 0.8;
+    width: 2rem;
+    height: 2rem;
+}
+
+.addTask__text{
+    margin: 0 0;
+    font-weight: bold;
+}
+/* ------------------------------------------------------------- */
+
+/* ------------------------ HISTORIAL --------------------------------- */
+.historialCard{
+    background-color: white;
+    border-radius: .4rem;
+    width: 30rem;
+}
+
+.deleteHistorial{
+    border-radius: .4rem;
+    border: white dashed .2rem;
+    opacity: 0.8;
+    color: white;
+    background-color: #1D4ED8;
+    width: 100%;
+    font-size: 1.5rem;
+    padding: .6rem 0;
+    transition: all .5s;
+}
+
+.deleteHistorial:hover {
+    opacity: 1;
+}
+
+.deleteHistorial__text{
+    margin: 0 auto;
+    font-weight: bold;
+}
+/* ------------------------------------------------------------- */
