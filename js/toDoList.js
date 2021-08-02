@@ -97,9 +97,9 @@ continuarTareas = confirm('Desea continuar?');
 // eliminar tarea hecha
 
 let tareaHecha = confirm('Terminaste alguna tarea?');
-let posicionDeLaTareaHecha = tareaTerminada(tareaHecha, tareasAlmacenadas.length)
+let posicionDeLaTareaHecha = tareaTerminada(tareaHecha, tareasAlmacenadas.length);
 tareasAlmacenadas.splice(posicionDeLaTareaHecha, 1);
-console.log(tareasAlmacenadas)
+console.log(tareasAlmacenadas);
 
 // timer que puedas programar una alarma
 
