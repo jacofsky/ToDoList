@@ -57,6 +57,7 @@ function tareaTerminada (termineUnaTarea, tamanioArray) {
     }
 }
 
+// pedir tarea
 
 let curso = 'a';
 const tareasAlmacenadas = []
