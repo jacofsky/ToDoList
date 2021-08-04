@@ -14,8 +14,6 @@ const pedirNumbrer = mensaje => {
     return numero;
 }
 
-// cursos
-
 const validarCurso = year => {
     while (year != '1 año' && year != '2 año' && year != '3 año' && year != '4 año' && year != '5 año') {
         year = pedirInput('Ingrese de la manera correcta su curso (1 año, 2 año, 3 año, 4 Año o 5 Año)');
@@ -23,21 +21,14 @@ const validarCurso = year => {
     return year;
 }
 
-let curso = pedirInput('Ingrese su curso para empezar (1 año, 2 año, 3 año, 4 año o 5 año)');
-curso = validarCurso(curso);
-
-
-// agregar y quitar las tareas con fecha limite
-
 
 function validarMes (mes) {
-    while (mes <= 0 || mes > 12) {
+    while (mes < 0 || mes > 12) {
         alert('Ingrese un mes valido!!');
         mes = pedirNumbrer('Ingrese el mes')
     }
     return mes;
 }
-
 
 function validarDia (dia, mes, FECHA) {
     
@@ -56,7 +47,26 @@ function validarDia (dia, mes, FECHA) {
     return dia;
 }
 
+function tareaTerminada (termineUnaTarea, tamanioArray) {
+    if (termineUnaTarea == true){
+        let numeroDeTarea = pedirNumbrer('Ingrese el numero de la tarea terminada') - 1;
+        while (numeroDeTarea <= 0 && numeroDeTarea > tamanioArray.length){
+            numeroDeTarea = pedirNumbrer('Ingrese el numero de la tarea terminada correctamente') - 1
+        }
+        return numeroDeTarea;
+    }
+}
 
+// pedir tarea
+
+let curso = 'a';
+const tareasAlmacenadas = []
+let continuarTareas = true;
+
+while(continuarTareas == true){
+
+curso = pedirInput('Ingrese su curso para empezar (1 año, 2 año, 3 año, 4 año o 5 año)');
+curso = validarCurso(curso);
 let tarea = pedirInput('Ingrese tarea a realizar');
 alert('A continuacion ingrese la fecha numericamente (Asegurese de que sea valida)');
 let mes = pedirNumbrer('Ingrese el mes') - 1;
@@ -80,8 +90,20 @@ class GuardarTareas {
 
 }
 
-const tarea1 = new GuardarTareas(curso, tarea, mes, dia);
-console.log(tarea1.mostrarTarea())
+tareasAlmacenadas.push(new GuardarTareas(curso, tarea, mes, dia));
+
+continuarTareas = confirm('Desea continuar?');
+}
+
+// eliminar tarea hecha
+
+let tareaHecha = confirm('Terminaste alguna tarea?');
+if (tareaHecha == true) {
+    let posicionDeLaTareaHecha = tareaTerminada(tareaHecha, tareasAlmacenadas.length);
+    tareasAlmacenadas.splice(posicionDeLaTareaHecha, 1);   
+}
+console.log(tareasAlmacenadas);
+
 
 // timer que puedas programar una alarma
 
