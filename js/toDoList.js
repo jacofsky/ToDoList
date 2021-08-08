@@ -23,9 +23,9 @@ const validarCurso = year => {
 
 
 function validarMes (mes) {
-    while (mes < 0 || mes > 12) {
+    while (mes < 0 || mes > 11) {
         alert('Ingrese un mes valido!!');
-        mes = pedirNumbrer('Ingrese el mes')
+        mes = pedirNumbrer('Ingrese el mes') - 1;
     }
     return mes;
 }
@@ -105,11 +105,29 @@ if (tareaHecha == true) {
 console.log(tareasAlmacenadas);
 
 
+const contenedorDeTareas = document.getElementById('listaTareas');
+for (const campoTarea of tareasAlmacenadas) {
+
+    let liAlmacenaTarea = document.createElement("li");
+    liAlmacenaTarea.setAttribute("class", "taskCard p-1 my-3 d-flex justify-content-between")
+
+    liAlmacenaTarea.innerHTML = `
+        <p class="taskCard__text my-auto">${campoTarea.tarea}</p>
+            <button class="trashButton">
+                <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_lvbgqvh4.json" background="transparent" speed="1.5" style="width: 2.5rem; height: 2.5rem;" hover></lottie-player>
+            </button>
+            `
+    contenedorDeTareas.appendChild(liAlmacenaTarea)
+}
+
 // timer que puedas programar una alarma
 
 let tiempoParaAlarma = pedirNumbrer('Ingrese el tiempo del cronomentro en minutos');
 let segundos = 60;
 let minutos = tiempoParaAlarma - 1;
+
+
+
 
 let temporizador = setInterval(() => {
     segundos --;
@@ -126,3 +144,6 @@ let temporizador = setInterval(() => {
     }
 
 }, 1000);
+
+
+
