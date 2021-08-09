@@ -14,6 +14,14 @@ const pedirNumbrer = mensaje => {
     return numero;
 }
 
+const pedirNumeroPositivo = mensaje => {
+    let numero = parseInt(prompt(mensaje));
+    while (isNaN(numero) || numero < 0) {
+        numero = parseInt(prompt(mensaje));
+    }
+    return numero;
+}
+
 const validarCurso = year => {
     while (year != '1 año' && year != '2 año' && year != '3 año' && year != '4 año' && year != '5 año') {
         year = pedirInput('Ingrese de la manera correcta su curso (1 año, 2 año, 3 año, 4 Año o 5 Año)');
@@ -147,22 +155,18 @@ console.log(tareasAlmacenadas);
 
 
 
-let tiempoParaAlarma = pedirNumbrer('Ingrese el tiempo del cronomentro en minutos');
-let segundos = 60;
-let minutos = tiempoParaAlarma - 1;
+let tiempoParaAlarma = pedirNumeroPositivo('Ingrese el tiempo del cronomentro en minutos');
+let tiempo = tiempoParaAlarma * 60
+
 const contenedorRelog = document.getElementById('contenedorRelog');
-let pMinutos = document.createElement("p");
-pMinutos.setAttribute("class", "d-inline time");
-pMinutos.innerHTML = `${minutos}:${segundos}`;
-contenedorRelog.appendChild(pMinutos)
 
-
+let pMinutos = document.getElementById("contenedorRelog");
 
 let temporizador = setInterval(() => {
     
+    let minutos = Math.floor(tiempo / 60);
+    let segundos = tiempo % 60;
     
-
-    console.log(`Pasaron ${minutos}:${segundos}`);
     if (segundos < 10){
         pMinutos.innerHTML = `${minutos}:0${segundos}`;
     } else {
@@ -173,11 +177,7 @@ let temporizador = setInterval(() => {
         clearInterval(temporizador);
         console.log('RINGGGG!!')
     }
-    if (segundos == 0){
-        minutos --;
-        segundos = 60;
-    }
-    segundos --;
+    tiempo --;
 }, 1000);
 
 
