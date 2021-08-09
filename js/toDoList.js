@@ -57,6 +57,24 @@ function tareaTerminada (termineUnaTarea, tamanioArray) {
     }
 }
 
+function agregarTareaEnElDom() {
+    const contenedorDeTareas = document.getElementById('listaTareas');
+    for (const campoTarea of tareasAlmacenadas) {
+    
+        let liAlmacenaTarea = document.createElement("li");
+        liAlmacenaTarea.setAttribute("class", "taskCard p-1 my-3 d-flex justify-content-between")
+    
+        liAlmacenaTarea.innerHTML = `
+            <p class="taskCard__text my-auto">${campoTarea.tarea}</p>
+                <button class="trashButton">
+                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_lvbgqvh4.json" background="transparent" speed="1.5" style="width: 2.5rem; height: 2.5rem;" hover></lottie-player>
+                </button>
+                `
+        contenedorDeTareas.appendChild(liAlmacenaTarea)
+    }
+}
+
+
 // pedir tarea
 
 let curso = 'a';
@@ -104,34 +122,27 @@ if (tareaHecha == true) {
 }
 console.log(tareasAlmacenadas);
 
+agregarTareaEnElDom();
 
-const contenedorDeTareas = document.getElementById('listaTareas');
-for (const campoTarea of tareasAlmacenadas) {
-
-    let liAlmacenaTarea = document.createElement("li");
-    liAlmacenaTarea.setAttribute("class", "taskCard p-1 my-3 d-flex justify-content-between")
-
-    liAlmacenaTarea.innerHTML = `
-        <p class="taskCard__text my-auto">${campoTarea.tarea}</p>
-            <button class="trashButton">
-                <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_lvbgqvh4.json" background="transparent" speed="1.5" style="width: 2.5rem; height: 2.5rem;" hover></lottie-player>
-            </button>
-            `
-    contenedorDeTareas.appendChild(liAlmacenaTarea)
-}
 
 // timer que puedas programar una alarma
+
+
 
 let tiempoParaAlarma = pedirNumbrer('Ingrese el tiempo del cronomentro en minutos');
 let segundos = 60;
 let minutos = tiempoParaAlarma - 1;
-
+const contenedorRelog = document.getElementById('contenedorRelog');
+let pMinutos = document.createElement("p");
+pMinutos.setAttribute("class", "d-inline time");
+pMinutos.innerHTML = `${minutos}:${segundos}`;
+contenedorRelog.appendChild(pMinutos)
 
 
 
 let temporizador = setInterval(() => {
     segundos --;
-    
+    pMinutos.innerHTML = `${minutos}:${segundos}`;
 
     console.log(`Pasaron ${minutos}:${segundos}`);
     if (minutos == 0 && segundos == 0) {
