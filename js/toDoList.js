@@ -50,19 +50,20 @@ function validarDia (dia, mes, FECHA) {
 function tareaTerminada (termineUnaTarea, tamanioArray) {
     if (termineUnaTarea == true){
         let numeroDeTarea = pedirNumbrer('Ingrese el numero de la tarea terminada') - 1;
-        while (numeroDeTarea <= 0 && numeroDeTarea > tamanioArray.length){
+        while (numeroDeTarea <= -1 || numeroDeTarea >= tamanioArray){
             numeroDeTarea = pedirNumbrer('Ingrese el numero de la tarea terminada correctamente') - 1
         }
         return numeroDeTarea;
     }
 }
 
-function agregarTareaEnElDom() {
-    const contenedorDeTareas = document.getElementById('listaTareas');
+function agregarTareaEnElDom(contenedorDeTareas) {
+    
     for (const campoTarea of tareasAlmacenadas) {
     
         let liAlmacenaTarea = document.createElement("li");
         liAlmacenaTarea.setAttribute("class", "taskCard p-1 my-3 d-flex justify-content-between")
+        liAlmacenaTarea.setAttribute("id", "nuevaTarea")
     
         liAlmacenaTarea.innerHTML = `
             <p class="taskCard__text my-auto">${campoTarea.tarea}</p>
@@ -72,8 +73,18 @@ function agregarTareaEnElDom() {
                 `
         contenedorDeTareas.appendChild(liAlmacenaTarea)
     }
+    
 }
 
+function quitarTareaEnElDom(tareaSelecionada, contenedorDeTareas) {
+    const tareas = document.querySelectorAll("#nuevaTarea");
+    for (let i = 0; i < tareas.length; i++) {
+        if (tareas[tareaSelecionada] == tareas[i]){
+            contenedorDeTareas.removeChild(tareas[i])
+            break;
+        }   
+    }   
+}
 
 // pedir tarea
 
@@ -113,16 +124,23 @@ tareasAlmacenadas.push(new GuardarTareas(curso, tarea, mes, dia));
 continuarTareas = confirm('Desea continuar?');
 }
 
+const contenedorDeTareas = document.getElementById('listaTareas');
+agregarTareaEnElDom(contenedorDeTareas);
+
+const tareas = document.querySelectorAll("#nuevaTarea");
+console.log(tareas)
+
+
 // eliminar tarea hecha
 
 let tareaHecha = confirm('Terminaste alguna tarea?');
 if (tareaHecha == true) {
     let posicionDeLaTareaHecha = tareaTerminada(tareaHecha, tareasAlmacenadas.length);
-    tareasAlmacenadas.splice(posicionDeLaTareaHecha, 1);   
+    tareasAlmacenadas.splice(posicionDeLaTareaHecha, 1); 
+    quitarTareaEnElDom(posicionDeLaTareaHecha, contenedorDeTareas)  
 }
 console.log(tareasAlmacenadas);
 
-agregarTareaEnElDom();
 
 
 // timer que puedas programar una alarma
@@ -141,10 +159,16 @@ contenedorRelog.appendChild(pMinutos)
 
 
 let temporizador = setInterval(() => {
-    segundos --;
-    pMinutos.innerHTML = `${minutos}:${segundos}`;
+    
+    
 
     console.log(`Pasaron ${minutos}:${segundos}`);
+    if (segundos < 10){
+        pMinutos.innerHTML = `${minutos}:0${segundos}`;
+    } else {
+        pMinutos.innerHTML = `${minutos}:${segundos}`;
+    }
+
     if (minutos == 0 && segundos == 0) {
         clearInterval(temporizador);
         console.log('RINGGGG!!')
@@ -153,7 +177,7 @@ let temporizador = setInterval(() => {
         minutos --;
         segundos = 60;
     }
-
+    segundos --;
 }, 1000);
 
 
