@@ -129,6 +129,7 @@ class GuardarTareas {
                 </button>
             `
 
+        // como hago para mantener este anexo y hacer q solo se borre al presionar el boton?
         liAlmacenaTarea.onclick = () => {
             liAlmacenaTarea.remove();
             this.activo = false;
