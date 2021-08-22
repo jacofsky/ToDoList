@@ -48,13 +48,19 @@ function datosForm(e) {
     
 
     if (!validarTarea(tarea.value)){
-        tarea.style.border = '5px solid red'
+        tarea.style.border = '3px solid #ff5b5b'
+    } else{
+        tarea.style.border = '3px solid #dbdbdb'
     }
+
     if (!validarMasInfo(masInfo.value)){
-        masInfo.style.border = '5px solid red'
+        masInfo.style.border = '3px solid #ff5b5b'
+    } else{
+        masInfo.style.border = '3px solid #dbdbdb'
     }
+    
     if (!validarDia(dia.value)){
-        dia.style.border = '5px solid red'
+        dia.style.border = '3px solid #ff5b5b'
     }
 
     if (validarTarea(tarea.value) && validarMasInfo(masInfo.value) && validarDia(dia.value)) {
@@ -65,7 +71,6 @@ function datosForm(e) {
         tareasAlmacenadas.push(tareaNueva);
         guardarTareaEnStorage(tareasAlmacenadas)
         modal.style.display = "none";
-        
     }
 }
 

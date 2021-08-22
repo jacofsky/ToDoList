@@ -134,12 +134,13 @@
 
 .modalAddTask {
     display: none;
-    width: 50vh;
+    width: 30rem;
     height: max-content;
     background: white;
     z-index: 1;
     position: absolute;
-    bottom: 50vh;
+    bottom: 50%;
+    
     border-radius: 1rem;
     padding: .7rem;
     transition: all .5s;
@@ -157,13 +158,28 @@
     width: 100%;
     border: none;
     height: 4rem;
+    border: 3px solid #dbdbdb;
+    border-radius: 1rem;
     font-size: 2rem;
+    padding-left: .5rem;
+    transition: border .3s;
+}
+
+.inputTextArea{
+    width: 100%;
+    border: 3px solid #dbdbdb;
+    height: 8rem;
+    font-size: 1.25rem;
+    padding-left: .5rem;
+    border-radius: .3rem;
+    transition: border .3s;
 }
 
 .inputDate{
     border: none;
     background-color: #dbdbdb;
     border-radius: .3rem;
+    transition: border .3s;
 }
 
 
