@@ -106,21 +106,7 @@ function actualizarStorage () {
     guardarTareaEnStorage(tareasAlmacenadas);
 }
 
-
-
-const FECHA = new Date();
-const tareasAlmacenadas = []
-const contenedorDeTareas = document.getElementById('listaTareas');
-const contenedorDeTareasHistorial = document.getElementById('contenedorDeTareasEnHistorial')
-obtenerElStorage(tareasAlmacenadas)
-
-
-let formulario = document.getElementById('formularioTarea')
-formulario.addEventListener("submit", datosForm)
-
-
-
-
+// ---------------------- CLASE GUARDAR TAREA -----------------------------
 class GuardarTareas {
     constructor(tarea, masInfo, dia, activo) {
         this.tarea = tarea;
@@ -159,4 +145,15 @@ class GuardarTareas {
     }
 }
 
+// main
 
+const FECHA = new Date();
+const tareasAlmacenadas = []
+const contenedorDeTareas = document.getElementById('listaTareas');
+const contenedorDeTareasHistorial = document.getElementById('contenedorDeTareasEnHistorial')
+
+
+let formulario = document.getElementById('formularioTarea')
+formulario.addEventListener("submit", datosForm)
+
+obtenerElStorage(tareasAlmacenadas)
