@@ -2,6 +2,14 @@
     background-color: #0EA5E9;
 }
 
+*:focus {
+    outline: none;
+}
+
+* {
+    font-family: roboto, sans-serif;
+}
+
 /* ------------------------ TIMER --------------------------------- */
 
 .timerContainer{
@@ -43,6 +51,11 @@
 .arrowTime{
     border: none;
     background-color: transparent;
+    color: white;
+}
+
+.arrowTime i{
+    font-size: 5rem;
 }
 
 /* ------------------------------------------------------------- */
@@ -118,12 +131,69 @@
 
 /* ------------------------ MODAL ADD TASK --------------------------------- */
 
+
 .modalAddTask {
-    width: 10rem;
-    height: 5rem;
+    display: none;
+    width: 50vh;
+    height: max-content;
     background: white;
-    
+    z-index: 1;
+    position: absolute;
+    bottom: 50vh;
+    border-radius: 1rem;
+    padding: .7rem;
+    transition: all .5s;
 }
+
+.modalAddTask form label, input, button{
+    display: block;
+}
+
+.modalAddTask form label{
+    font-size: 1.25rem;
+}
+
+.inputTarea{
+    width: 100%;
+    border: none;
+    height: 4rem;
+    font-size: 2rem;
+}
+
+.inputDate{
+    border: none;
+    background-color: #dbdbdb;
+    border-radius: .3rem;
+}
+
+
+.sumbitButtonTask,.closeButton{
+    border: none;
+    background: none;
+}
+
+
+.sumbitButtonTask i{
+    font-size: 2rem;
+    color: #0ea5e9;
+    transition: color .3s
+}
+
+.sumbitButtonTask i:hover{
+    color: #1D4ED8;
+}
+
+
+.closeButton i{
+    font-size: 1.2rem;
+    transition: color .3s
+}
+
+
+.closeButton i:hover{
+    color: red;
+}
+
 
 /* ------------------------------------------------------------- */
 
