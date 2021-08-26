@@ -60,7 +60,7 @@ function temporizadorFunction (tiempo, pMinutos) {
             console.log('RINGGGG!!')
         }
         tiempo --;
-    }, 10);
+    }, 1000);
     
 }
 
