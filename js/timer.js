@@ -2,18 +2,38 @@
 // let botonSumarMinuto = document.getElementById('masUnMinuto');
 
 let empezar = document.getElementById('empezarTimer');
+let contenedor = document.getElementById('contenedorRelog')
+let pMinutos = document.getElementById('contenedorRelog');
+let masUnMinuto = document.getElementById('masUnMinuto')
+let menosUnMinuto = document.getElementById('menosUnMinuto')
+
+
 let contando = false;
+let tiemtiempoParaAlarma = 0;
+
+pMinutos.innerHTML = `${tiemtiempoParaAlarma}:00`;
 
 
 empezar.onclick = () => {
-    
-    
+
     if (contando == false) {
-    let pMinutos = document.getElementById('contenedorRelog');
-    let tiemtiempopoParaAlarma = 25;
-    tiempo = tiemtiempopoParaAlarma * 60
-    temporizadorFunction(tiempo, pMinutos);
-    contando = true;
+        let tiempo = tiemtiempoParaAlarma * 60;
+        temporizadorFunction(tiempo, pMinutos);
+        contando = true;
+    }
+}
+
+masUnMinuto.onclick = () => {
+    if (tiemtiempoParaAlarma < 100 && !contando) {
+        tiemtiempoParaAlarma++;
+        pMinutos.innerHTML = `${tiemtiempoParaAlarma}:00`;
+    }
+}
+
+menosUnMinuto.onclick = () => {
+    if (tiemtiempoParaAlarma > 0 && !contando) {
+        tiemtiempoParaAlarma--;
+        pMinutos.innerHTML = `${tiemtiempoParaAlarma}:00`;
     }
 }
 
@@ -35,10 +55,12 @@ function temporizadorFunction (tiempo, pMinutos) {
 
         if (minutos == 0 && segundos == 0) {
             clearInterval(temporizador);
+            contando = false;
+            tiemtiempoParaAlarma = 0;
             console.log('RINGGGG!!')
         }
         tiempo --;
-    }, 1000);
+    }, 10);
     
 }
 
