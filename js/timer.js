@@ -55,9 +55,10 @@ function temporizadorFunction (tiempo, pMinutos) {
 
         if (minutos == 0 && segundos == 0) {
             clearInterval(temporizador);
+            alarma();
             contando = false;
             tiemtiempoParaAlarma = 0;
-            console.log('RINGGGG!!')
+            
         }
         tiempo --;
     }, 1000);
@@ -71,6 +72,12 @@ function restarMinuto () {
         pMinutos.innerHTML = `${minutos}:0${segundos}`    
     }
     
+}
+
+function alarma() {
+    pMinutos.innerHTML = `<i class="bi bi-alarm"></i>`
+    sonido = document.getElementById('sonidoAlarma')
+    sonido.play();
 }
 
 

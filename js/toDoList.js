@@ -111,6 +111,21 @@ function actualizarStorage () {
     guardarTareaEnStorage(tareasAlmacenadas);
 }
 
+// 9. Borrar historial en el storage
+
+function borrarStorage () {
+    localStorage.removeItem("TareaAlmacenada");
+    borrarHistorialDom();
+}
+
+// 10. Borrar historial en el dom
+function borrarHistorialDom() {
+    let tareasDelHistorial = document.querySelectorAll("#contenedorDeTareasEnHistorial li");
+    for (const tarea of tareasDelHistorial){
+        tarea.remove();
+    }
+}
+
 // ---------------------- CLASE GUARDAR TAREA -----------------------------
 class GuardarTareas {
     constructor(tarea, masInfo, dia, activo) {
@@ -151,7 +166,7 @@ class GuardarTareas {
     }
 }
 
-// main
+// -------------------------------------------------------------------------------------------------------------
 
 const FECHA = new Date();
 const tareasAlmacenadas = []
@@ -161,5 +176,8 @@ const contenedorDeTareasHistorial = document.getElementById('contenedorDeTareasE
 
 let formulario = document.getElementById('formularioTarea')
 formulario.addEventListener("submit", datosForm)
+
+let borrarHistorial = document.getElementById('borrarHistorial');
+borrarHistorial.addEventListener("click", borrarStorage);
 
 obtenerElStorage(tareasAlmacenadas)
