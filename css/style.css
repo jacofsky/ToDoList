@@ -1,5 +1,8 @@
 .bgColor{
     background-color: #0EA5E9;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
 }
 
 *:focus {
@@ -68,6 +71,13 @@
     overflow: auto;
 }
 
+.listStyleHistorial {
+    list-style: none;
+    padding: 0;
+    height: 34rem;
+    overflow: auto;
+}
+
 .taskButton{
     background-color: transparent;
     color: #E0F2FE;
@@ -94,6 +104,15 @@
 .trashButton{
    border: none; 
 }
+
+.taskAndHistorial{
+    height: 50rem;
+}
+
+.historialBox{
+    width: 31rem;
+}
+
 /* ------------------------------------------------------------- */
 
 /* ------------------------ AGREGAR TAREAS --------------------------------- */
@@ -241,4 +260,39 @@
     font-weight: bold;
 }
 /* ------------------------------------------------------------- */
+
+/* ------------------------ WHEATER --------------------------------- */
+
+.weatherBoxPosition{
+    width: 80%;
+    
+    margin: 0 auto;
+    height: 90%;
+    margin-top: 7.5rem;
+    
+    
+}
+
+.weatherBox{
+    background-color: rgba(0, 0, 0, 0.15);
+    height: 85%;
+    border-radius: 1rem;
+    color: white;
+
+}
+
+.temperaturaYEstado p{
+    display: inline;
+    font-size: 2rem;
+    
+}
+
+.temperaturaYEstado i{
+    display: inline;
+    font-size: 3rem;
+}
+
+.weatherDescription{
+    font-size: 1.25rem;
+}
 
