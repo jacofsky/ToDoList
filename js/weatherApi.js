@@ -35,25 +35,25 @@ $(document).ready(function () {
         let imageDirection;
         switch (estado) {
             case 'Thunderstorm':
-                imageDirection = '../assets/Climas/Thunderstorm.jpg';
+                imageDirection = 'assets/Climas/Thunderstorm.jpg';
                 break;
             case 'Drizzle':
-                imageDirection = '../assets/Climas/Drizzle.jpg';
+                imageDirection = 'assets/Climas/Drizzle.jpg';
                 break;
             case 'Rain':
-                imageDirection = '../assets/Climas/Rain.jpg';
+                imageDirection = 'assets/Climas/Rain.jpg';
                 break;
             case 'Snow':
-                imageDirection = '../assets/Climas/Snow.jpg';
+                imageDirection = 'assets/Climas/Snow.jpg';
                 break;
             case 'Clear':
-                imageDirection = '../assets/Climas/Clear.jpg';
+                imageDirection = 'assets/Climas/Clear.jpg';
                 break;
             case 'Clouds':
-                imageDirection = '../assets/Climas/Clouds.jpg';
+                imageDirection = 'assets/Climas/Clouds.jpg';
                 break;
             default:
-                imageDirection = '../assets/Climas/Mist.jpg';
+                imageDirection = 'assets/Climas/Mist.jpg';
                 break;
         }
 
