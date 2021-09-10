@@ -32,43 +32,55 @@ $(document).ready(function () {
     }
 
     function imageWeatherSelector(estado) {
-        let imageDirection;
+        let weatherIcon;
         switch (estado) {
             case 'Thunderstorm':
-                imageDirection = 'assets/Climas/Thunderstorm.jpg';
+                $(".weatherBox").css("background-image", `url("assets/Climas/Thunderstorm.jpg")`)
+                weatherIcon = 'bi bi-cloud-lightning-rain';
                 break;
             case 'Drizzle':
-                imageDirection = 'assets/Climas/Drizzle.jpg';
+                $(".weatherBox").css("background-image", `url("assets/Climas/Drizzle.jpg")`)
+
+                weatherIcon = 'bi bi-cloud-drizzle';
                 break;
             case 'Rain':
-                imageDirection = 'assets/Climas/Rain.jpg';
+                $(".weatherBox").css("background-image", `url("assets/Climas/Rain.jpg")`)
+
+                weatherIcon = 'bi bi-cloud-rain';
                 break;
             case 'Snow':
-                imageDirection = 'assets/Climas/Snow.jpg';
+                $(".weatherBox").css("background-image", `url("assets/Climas/Snow.jpg")`)
+
+                weatherIcon = 'bi bi-cloud-snow';
                 break;
             case 'Clear':
-                imageDirection = 'assets/Climas/Clear.jpg';
+                $(".weatherBox").css("background-image", `url("assets/Climas/Clear.jpg")`)
+
+                weatherIcon = 'bi bi-brightness-high';
                 break;
             case 'Clouds':
-                imageDirection = 'assets/Climas/Clouds.jpg';
+                $(".weatherBox").css("background-image", `url("assets/Climas/Cloud.jpg")`)
+
+                weatherIcon = 'bi bi-clouds';
                 break;
             default:
-                imageDirection = 'assets/Climas/Mist.jpg';
+                $(".weatherBox").css("background-image", `url("assets/Climas/Mist.jpg")`)
+                weatherIcon = 'bi bi-cloud-haze-1';
                 break;
         }
 
-        return imageDirection;
+        return weatherIcon;
 
     }
 
     function WeatherEnDom(weatherInfo, celsius, ultimoArrayWeather, imageWeather) {
 
 
-        $(".weatherBox").css("background-image", `url("${imageWeather}")`)
+        
         $(".weatherBox").append(`
         <h2>${weatherInfo.name}</h2>
         <div class="temperaturaYEstado d-flex">
-            <img class="weatherIcon" src="http://openweathermap.org/img/wn/${weatherInfo.weather[ultimoArrayWeather].icon}@2x.png">
+            <i class="${imageWeather}"></i>
             <p class="ps-1">${celsius}°C</p>
         </div>
         <p class="weatherDescription">${weatherInfo.weather[ultimoArrayWeather].description}</p>`);
