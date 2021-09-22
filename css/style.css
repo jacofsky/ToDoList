@@ -253,6 +253,11 @@
     color: red;
 }
 
+.errorAdvertencia{
+    display: none;
+    color: red;
+    margin: 0;
+}
 
 /* ------------------------------------------------------------- */
 

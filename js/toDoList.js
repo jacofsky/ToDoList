@@ -42,6 +42,9 @@ function datosForm(e) {
     let tarea = document.getElementById('tarea');
     let masInfo = document.getElementById('masInfo');
     let dia = document.getElementById('dia');
+    let advertencia = document.getElementById('advertencia1')
+    let advertencia2 = document.getElementById('advertencia2')
+
 
     console.log(tarea.value + masInfo.value + dia.value)
     
@@ -49,14 +52,20 @@ function datosForm(e) {
 
     if (!validarTarea(tarea.value)){
         tarea.style.border = '3px solid #ff5b5b'
+        advertencia.style.display = 'block'
+
     } else{
         tarea.style.border = '3px solid #dbdbdb'
+        advertencia.style.display = 'none'
     }
 
     if (!validarMasInfo(masInfo.value)){
         masInfo.style.border = '3px solid #ff5b5b'
+        advertencia2.style.display = 'block'
+
     } else{
         masInfo.style.border = '3px solid #dbdbdb'
+        advertencia2.style.display = 'none'
     }
     
     if (!validarDia(dia.value)){

@@ -89,27 +89,6 @@
             <p class="addTask__text">AGREGAR TAREA</p>
           </button>
 
-
-          <!-- <div class="modalAddTask" id="modalAddTask">
-
-            <button id="closeAddTask" class="closeButton ms-auto"><i class="bi-x-lg"></i></button>
-
-            <form id="formularioTarea">
-              <input class="inputTarea" placeholder="Introduzca su tarea" type="text" value="" id="tarea" required>
-
-              <textarea id="masInfo" class="inputTextArea my-4" placeholder="Mas informacion" value=""></textarea>
-
-              <label>Ingrese el dia de finalizacion de la tarea</label>
-
-              <div class="d-flex justify-content-between">
-                <input class="inputDate px-2 py-2 mt-2" type="number" min="1" value="1" id="dia" required>
-                <button type="submit" class="sumbitButtonTask mt-2"><i class="bi-arrow-right-square-fill"></i></button>
-
-              </div>
-
-            </form>
-
-          </div> -->
         </div>
 
 
@@ -134,10 +113,15 @@
 
       <button id="closeAddTask" class="closeButton ms-auto"><i class="bi-x-lg"></i></button>
 
-      <form id="formularioTarea">
+      <form id="formularioTarea"> 
+        <p class="errorAdvertencia" id="advertencia1">Escriba entre 1 y 30 caracteres por favor</p>
         <input class="inputTarea" placeholder="Introduzca su tarea" type="text" value="" id="tarea" required>
 
-        <textarea id="masInfo" class="inputTextArea my-4" placeholder="Mas informacion" value=""></textarea>
+        <div class="my-4">
+          <p class="errorAdvertencia" id="advertencia2">Escriba entre 1 y 150 caracteres por favor</p>
+          <textarea id="masInfo" class="inputTextArea" placeholder="Mas informacion" value=""></textarea>
+        </div>
+        
 
         <label>Ingrese el dia de finalizacion de la tarea</label>
 
