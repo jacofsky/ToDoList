@@ -1,5 +1,3 @@
-// let botonRestarMinuto = document.getElementById('menosUnMinuto');
-// let botonSumarMinuto = document.getElementById('masUnMinuto');
 
 let empezar = document.getElementById('empezarTimer');
 let contenedor = document.getElementById('contenedorRelog')
@@ -42,7 +40,7 @@ menosUnMinuto.onclick = () => {
 
 function temporizadorFunction (tiempo, pMinutos) {
     
-    let temporizador = setInterval(() => {
+    const temporizador = setInterval(() => {
     
         let minutos = Math.floor(tiempo / 60);
         let segundos = tiempo % 60;
