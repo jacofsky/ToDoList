@@ -1,11 +1,14 @@
-$(document).ready(function () {
+let DateNow = new Date()
 
+$(document).ready(function () {
+    
 
     getLocation()
 
     function getLocation() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+            
+            navigator.geolocation.getCurrentPosition(showPosition)
         }
     }
 
@@ -22,13 +25,18 @@ $(document).ready(function () {
                 let imageWeather = imageWeatherSelector(weatherInfo.weather[ultimoArrayWeather].main)
 
                 let celsiusTemp = kelvinToCelsius(weatherInfo)
+               
+                
                 WeatherEnDom(weatherInfo, celsiusTemp, ultimoArrayWeather, imageWeather);
+                
             }
         })
+
+        
     }
 
     function kelvinToCelsius(weatherInfo) {
-        return Math.round(300 - weatherInfo.main.temp);
+        return Math.round(weatherInfo.main.temp - 273);
     }
 
     function imageWeatherSelector(estado) {
@@ -74,18 +82,17 @@ $(document).ready(function () {
     }
 
     function WeatherEnDom(weatherInfo, celsius, ultimoArrayWeather, imageWeather) {
-
-
+        let minutesSubZero = `0${DateNow.getMinutes()}`
+        $("#weatherInfoName").html(weatherInfo.name);
+        $("#weatherIcon").attr('class',imageWeather);
+        $("#weatherTemperature").html(celsius);
+        $("#weatherDes").html(weatherInfo.weather[ultimoArrayWeather].description);
+        $("#ultimaActualizacion").html(`Ultima actualizacion: ${DateNow.getHours()}:${DateNow.getMinutes() < 10 ? minutesSubZero : DateNow.getMinutes()}hs`)
         
-        $(".weatherBox").append(`
-        <h2>${weatherInfo.name}</h2>
-        <div class="temperaturaYEstado d-flex">
-            <i class="${imageWeather}"></i>
-            <p class="ps-1">${celsius}°C</p>
-        </div>
-        <p class="weatherDescription">${weatherInfo.weather[ultimoArrayWeather].description}</p>`);
     }
 
+
+    
 
 
 

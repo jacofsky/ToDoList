@@ -22,7 +22,17 @@
 
   <div class="weatherBoxPosition mx-auto">
     <div class="container weatherBox pt-2">
-     
+      <div class="text-center my-4">
+        <h2 id="weatherInfoName"></h2>
+        <div class="temperaturaYEstado d-flex justify-content-center">
+            <i id="weatherIcon" class="${imageWeather}"></i>
+            <p id="weatherTemperature" class="ps-1"></p>
+        </div>
+        <p class="weatherDescription" id="weatherDes"></p>
+        
+    </div>
+    <p id="ultimaActualizacion" class="ps-1"></p>
+    <h2 class="text-center clockBox mt-5" id="weatherClock"></h2>
     </div>
       
 
@@ -122,6 +132,7 @@
   <script src="js/openModal.js"></script>
   <script src="js/timer.js"></script>
   <script src="js/toDoList.js"></script>
+  <script src="js/clock.js"></script>
 </body>
 
 </html>
