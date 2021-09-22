@@ -137,27 +137,27 @@ class GuardarTareas {
 
     agregaryQuitarEnTareas() {
         let liAlmacenaTarea = document.createElement("li");
-        let botonBorrarTarea = document.getElementById("borrarTarea");
-
+        
+    
         
         liAlmacenaTarea.setAttribute("class", "taskCard p-1 my-3 d-flex justify-content-between")
-    
+        
         liAlmacenaTarea.innerHTML = `
-                <p class="taskCard__text my-auto">${this.tarea}</p>
-                <button class="trashButton" id="borrarTarea">
-                <i class="bi bi-trash"></i>
-                </button>
-            `
+                <p class="taskCard__text my-auto">${this.tarea}</p>`
+        
+        
 
-        // como hago para mantener este anexo y hacer q solo se borre al presionar el boton?
+        
         liAlmacenaTarea.onclick = () => {
             liAlmacenaTarea.remove();
             this.activo = false;
             actualizarStorage();
         }
+        
         contenedorDeTareas.appendChild(liAlmacenaTarea)
     }
-    
+
+        
     agregarEnHistorial() {
         let liAlmacenaTarea = document.createElement("li");
         liAlmacenaTarea.setAttribute("class", "taskCard p-1 my-3 d-flex justify-content-between")

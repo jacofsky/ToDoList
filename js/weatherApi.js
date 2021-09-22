@@ -4,7 +4,9 @@ $(document).ready(function () {
     
 
     getLocation()
+    mostrarRelog()
 
+    // 1. Si tiene acceso a la locacion inicia la ejecucion del api
     function getLocation() {
         if (navigator.geolocation) {
             
@@ -12,6 +14,7 @@ $(document).ready(function () {
         }
     }
 
+    // 2. Se inicializa el api y se escogen los valores necesarios
     function showPosition(position) {
 
         const WEATHERAPI = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=22415c8625bded6564ac1a706f710746&lang=sp`;
@@ -19,7 +22,6 @@ $(document).ready(function () {
         $.get(WEATHERAPI, function (respuesta, estado) {
             if (estado === 'success') {
                 let weatherInfo = respuesta;
-                console.log(weatherInfo);
 
                 let ultimoArrayWeather = weatherInfo.weather.length - 1;
                 let imageWeather = imageWeatherSelector(weatherInfo.weather[ultimoArrayWeather].main)
@@ -35,10 +37,12 @@ $(document).ready(function () {
         
     }
 
+    // 3. Conversor de kelvin a celsius ya que la api trabaja los grados en kelvin 
     function kelvinToCelsius(weatherInfo) {
         return Math.round(weatherInfo.main.temp - 273);
     }
-
+ 
+    // 4. Se escoje el tipo de imagen de fondo dependiendo el clima 
     function imageWeatherSelector(estado) {
         let weatherIcon;
         switch (estado) {
@@ -81,21 +85,26 @@ $(document).ready(function () {
 
     }
 
+    // 5. Se imprime la informacion del clima 
     function WeatherEnDom(weatherInfo, celsius, ultimoArrayWeather, imageWeather) {
         let minutesSubZero = `0${DateNow.getMinutes()}`
         $("#weatherInfoName").html(weatherInfo.name);
         $("#weatherIcon").attr('class',imageWeather);
-        $("#weatherTemperature").html(celsius);
+        $("#weatherTemperature").html(`${celsius}°`);
         $("#weatherDes").html(weatherInfo.weather[ultimoArrayWeather].description);
         $("#ultimaActualizacion").html(`Ultima actualizacion: ${DateNow.getHours()}:${DateNow.getMinutes() < 10 ? minutesSubZero : DateNow.getMinutes()}hs`)
         
     }
 
+    // 6. Se imprime la hora 
+    async function mostrarRelog() {
+        const clock = setInterval(() => {
+            let dateClock = new Date();
+            let minutesSubZero = `0${dateClock.getMinutes()}`
+            let secondsSubZero = `0${dateClock.getSeconds()}`
+            $('#weatherClock').html( `${dateClock.getHours()}:${dateClock.getMinutes() < 10 ? minutesSubZero : dateClock.getMinutes()}:${dateClock.getSeconds() < 10 ? secondsSubZero : dateClock.getSeconds()}`)
+            
 
-    
-
-
-
-
-
+        }, 1000);
+    }
 })

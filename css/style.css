@@ -58,7 +58,27 @@
 }
 
 .arrowTime i{
-    font-size: 5rem;
+    font-size: 3rem;
+    transition: all .5s;
+}
+
+.arrowTime i:hover{
+    font-size: 6rem;
+}
+
+#botonTerminarContador{
+    background-color: transparent;
+    border: none;
+}
+
+#botonTerminarContador i{
+    font-size: 3rem;
+    color: #fff;
+    transition: all .5s;
+}
+
+#botonTerminarContador i:hover{
+    font-size: 4rem;
 }
 
 /* ------------------------------------------------------------- */
@@ -92,13 +112,17 @@
 .taskCard{
     background-color: white;
     border-radius: .4rem;
+    transition: all .4s;
+}
+
+.taskCard:hover{
+    background-color: rgb(1, 207, 1);
 }
 
 .taskCard__text{
     display: inline;
     font-size: 1.5rem;
     font-weight: bold;
-
 }
 
 .trashButton{
@@ -132,6 +156,8 @@
     transition: all .5s;
 }
 
+
+
 .addTask:hover, .addTask__plus {
     opacity: 1;
 }
@@ -152,16 +178,14 @@
 
 
 .modalAddTask {
+    margin: 20% 0;
     display: none;
     width: 30rem;
     height: max-content;
     background: white;
-    z-index: 1;
-    position: absolute;
-    bottom: 50%;
-    
     border-radius: 1rem;
     padding: .7rem;
+    
     transition: all .5s;
 }
 
@@ -275,7 +299,7 @@
 
 .weatherBox{
     background-color: rgba(0, 0, 0, 0.15);
-    height: 85%;
+    height: 50%;
     border-radius: 1rem;
     color: white;
 
