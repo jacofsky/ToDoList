@@ -46,8 +46,6 @@ function datosForm(e) {
     let advertencia2 = document.getElementById('advertencia2')
 
 
-    console.log(tarea.value + masInfo.value + dia.value)
-    
     
 
     if (!validarTarea(tarea.value)){
