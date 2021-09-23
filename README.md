@@ -1,16 +1,16 @@
 # ToDoList
 
 ## ENGLISH󠁮󠁧󠁿
-#### ▶️THEMATIC: TODOLIST◀️
+#### ▶️THEMATIC: ToDoList◀️
 #### ▶️PURPOSE: FINAL CODERHOUSE JS PROJECT◀️
 #### ▶️TECHNOLOGIES: html, css, javascript and jquery◀️
 #### ▶️SPA◀️
 #### ▶️API: https://openweathermap.org/current◀️
 
 ## ESPAÑOL
-#### ▶️TEMÁTICA: BASS SHOP◀️
+#### ▶️TEMÁTICA: ToDoList◀️
 #### ▶️FINALIDAD: PROYECTO FINAL CODERHOUSE◀️
-#### ▶️TECNOLOGÍAS: hthtml, css, javascript y jquery◀️
+#### ▶️TECNOLOGÍAS: html, css, javascript y jquery◀️
 #### ▶️SPA◀️
 #### ▶️API: https://openweathermap.org/current◀️
 
