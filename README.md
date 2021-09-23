@@ -9,7 +9,7 @@
 
 ## ESPAÑOL
 #### ▶️TEMÁTICA: ToDoList◀️
-#### ▶️FINALIDAD: PROYECTO FINAL CODERHOUSE◀️
+#### ▶️FINALIDAD: PROYECTO FINAL JS CODERHOUSE◀️
 #### ▶️TECNOLOGÍAS: html, css, javascript y jquery◀️
 #### ▶️SPA◀️
 #### ▶️API: https://openweathermap.org/current◀️
